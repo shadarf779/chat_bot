@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+    <title>CHATBOT</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=space+Mono|Roboto+Mono">
+    <link rel="stylesheet" href="BOTstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+
+    <style>
+        
+.chat-panel {
+    height: 500px;
+}
+.chat-bubble {
+   
+    border-radius: 9px;
+    position: relative;
+}
+.chat-bubble--left{
+    padding: 10px 14px;
+    background-color: #eee;
+    margin: 10px 30px;
+}
+
+
+.chat-bubble:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom:0;
+    margin-top:-10px;
+}
+
+
+
+
+.offset-md-9 .chat-bubble{
+    background: #74b9ff;
+    color:#fff;
+}
+
+     .chat-bubble--right:after{
+    right: 0;
+    padding: 0;
+    border-left-color:#74b9ff;
+    border-right: 0;
+    margin-right: -20px;
+}
+ .chat-bubble--left:after{
+    left: 0;
+    padding: 0;
+    border-left-color:#eee;
+    border-left: 0;
+    margin-left: -20px;
+}
+
+.chat-panel {
+    height: 500px;
+}
+.chat-bubble-Right{
+    right: 0;
+    padding: 10px 14px;
+    background-color: #74b9ff;
+    margin: 10px 30px;
+}
+
+        .time-bubble-Right{
+    margin-left: 90%;
+    }
+    .chat-bubble--right{
+        margin-left: 70%;
+    }
+    </style>
+
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-4 border-right">
+                    <div class="settings-tray">
+                        <img class="profile-image" src="Soran University Assistant.png" alt="Compus">
+                        CHATBOT 
+                        
+                        <span class="settings-tray--right " >
+                            <button class="btn disable-btn" onclick="location.reload()"><i  class="material-icons"> cached</i></button>
+                            <button class="btn" disabled> <i class="material-icons"> menu</i></button>
+                        </span>
+                    </div>
+                    <div class="Search-box">
+                    </div>
+                    <div class="history">
+                        <h5>History</h5>
+                        <div class="friend-drawer friend-drawer--onhover">
+                            <img class="profile-image" src="Chat-History-Icon.png" alt="chathistory">
+                            <div class="text">
+                                <h6>Hello</h6>
+                            </div>
+                            <span class="time text-muted small">22:34</span>
+                        </div>
+                    
+                    </div>
+                    <hr> 
+                    <div class="setting-fild">                       
+                       <div   title="hello boy">
+                        <span class="material-icons" >
+                            settings
+                            </span>
+                            <i >Setting</i>
+                        </div>
+                      
+                       <div class="text">
+                        <span class="material-icons">
+                            delete
+                            </span>
+                            <i>Delete</i>
+                        </div>
+                        <div onclick="showAboutUs()" class="text">
+                            <span  class="material-icons">
+                                info
+                                </span>
+                                <i>About Us</i>
+                            </div>
+                            
+                            <div  class="text">
+                                <span class="material-icons">
+                                    language
+                                    </span>
+                                    <i>Language</i>
+                                </div>
+                                <div class="text">
+                                    <span class="material-icons">
+                                        settings_brightness
+                                        </span>
+                                        <i>Dark Mode</i>
+                                    </div>
+                                <div class="text">
+                                    <span class="material-icons">
+                                        report_problem
+                                        </span>
+                                        <i>Report</i>
+                                   </div>
+                                   <div class="text">
+                                    <span class="material-icons">
+                                        feedback
+                                        </span>
+                                        <i>Feedback</i>
+                                   </div>
+                                   <div class="text">
+                                    <span class="material-icons">
+                                        bug_report
+                                        </span>
+                                        <i>Report Bug</i>
+                                   </div>
+                        
+                    </div>
+                      
+            </div>
+            <div class="col-md-8">
+                    <div class="settings-tray">
+                        <div class="friend-drawer no-gutters friend-drawer--onhover">
+                            <img class="profile-image" src="Soran University Assistant.png" alt="Compus">                      
+                            <div class="text">
+                                    <h6>Soran Universty Assist</h6>
+                                </div>
+                                <span class="settings-tray--right">
+                                <i class="material-icons">cached</i>
+                                <i class="material-icons">menu</i>
+                                <i class="material-icons">account_circle</i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-container" style="height: 80%;overflow-y: scroll; overflow-x: hidden;">
+        <div class="chat-panel">
+  
+                            
+                               
+            <div class="row no-gutters">           
+               <div class="col-md-8">
+                    <span class=" time-bubble-Left  time text-muted small">22:34</span>
+                   <div class="chat-bubble chat-bubble--left">
+                       this is hello world
+                  </div>
+               </div>
+            </div>
+                        				
+			            		
+            <div class="row no-gutters">
+               <div class="col-md-12">
+                    <span class=" time-bubble-Right  time text-muted small">22:34</span>
+                    <div class="chat-bubble chat-bubble-Right offset-md-9 chat-bubble--right">
+                       this user hello world 
+                    </div>                       
+               </div>
+           </div>         
+           <div class="row no-gutters">           
+            <div class="col-md-3">
+                 <span class=" time-bubble-Left  time text-muted small">22:34</span>
+                <div class="chat-bubble chat-bubble--left">
+                    this is hello world
+               </div>
+            </div>
+         </div>
+                                     
+                             
+         <div class="row no-gutters">
+            <div class="col-md-12">
+                 <span class=" time-bubble-Right  time text-muted small">22:34</span>
+                 <div class="chat-bubble chat-bubble-Right offset-md-9 chat-bubble--right">
+                    this user hello world 
+                 </div>                       
+            </div>
+        </div>   <div class="row no-gutters">           
+            <div class="col-md-3">
+                 <span class=" time-bubble-Left  time text-muted small">22:34</span>
+                <div class="chat-bubble chat-bubble--left">
+                    this is hello world
+               </div>
+            </div>
+         </div>
+                                     
+                             
+         <div class="row no-gutters">
+            <div class="col-md-12">
+                 <span class=" time-bubble-Right  time text-muted small">22:34</span>
+                 <div class="chat-bubble chat-bubble-Right offset-md-9 chat-bubble--right">
+                    this user hello world 
+                 </div>                       
+            </div>
+        </div>         
+        </div>
+                      
+                                                            
+                 </div>          
+              
+
+<form method="POST" action="Answer.php" autocomplete="off">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chat-box-tray">
+                <input class="col-md-11" placeholder="Type something..." list="autocomplete" type="text" id="search" name="user_input">
+                                <datalist class="autocomplete" id="autocomplete">
+                                <datalist id="myDataList">
+                                        
+                                </datalist>
+                                
+            </datalist>
+                  <button class="send" name="Has-Sumitted" type="submit"><i class="material-icons send-file">send</i></button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+            </div>
+            
+        </div>
+    </div>
+
+<script>
+function showAboutUs() {
+  Swal.fire({
+    title: 'About Us',
+    html: 'Shad Arf has developed a chatbot designed to assist students with the Learning Management System (LMS) of Soran University. The aim of the chatbot is to provide a seamless experience for students before they even arrive at the university. By using the chatbot, students can get answers to frequently asked questions about the university, including its faculties, courses, and other academic offerings.The chatbot can also assist with registration and enrollment, providing students with a smooth transition into university life. In addition, the chatbot can help students navigate the LMS, making it easier for them to access course materials, submit assignments, and communicate with their professors.Despite being a solo developer, Shad Arf has put in significant effort to make the chatbot as user-friendly and helpful as possible. With this chatbot, students can have an easier and more efficient experience with the university, right from the start.',
+    icon: 'info',
+    confirmButtonText: 'OK'
+  });
+}
+</script>
+    </body>
+</html>
