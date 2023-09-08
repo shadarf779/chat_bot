@@ -1,4 +1,3 @@
-SIGN UP FORM {
 
     CREATE TABLE usersignup (
     idUsers int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -9,9 +8,7 @@ SIGN UP FORM {
     pwdUsers LONGTEXT NOT NULL
      
 );
-}
 
-Bug_Report {
     CREATE TABLE bug_reports (
   id INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
@@ -20,8 +17,6 @@ Bug_Report {
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
-}
-Feedback {
     CREATE TABLE Feedback (
   id INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
@@ -29,10 +24,6 @@ Feedback {
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
-
-}
-
-Admin {
 
     CREATE TABLE questions (
   id INT(11) NOT NULL AUTO_INCREMENT,
@@ -44,4 +35,3 @@ Admin {
   PRIMARY KEY (id)
 );
 
-}
