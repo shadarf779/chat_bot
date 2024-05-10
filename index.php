@@ -62,7 +62,7 @@ $_SESSION['Bot'] = "Hello How I can Assistent today ?";
                         
                             <span style="margin-right:100px">
                             <img class="profile-image" src="Image/logo.png" alt="Compus">
-                            ASSISTANT
+                            Hello world
                             </span>
                       
                         
