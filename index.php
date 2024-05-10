@@ -16,8 +16,8 @@ $_SESSION['Bot'] = "Hello How I can Assistent today ?";
     <!-- Import jQuery UI stylesheet -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>  
     <!--Import jQuery UI JavaScript library-->
-    <link rel="stylesheet" href="/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css"> 
-    <!-- Import Bootstrap stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+ <!-- Import Bootstrap stylesheet -->
     <title>CHATBOT</title>
     <link rel="icon" type="image/Soran University Assistant.png" href="image/Soran University Assistant.png">
 
@@ -55,214 +55,154 @@ $_SESSION['Bot'] = "Hello How I can Assistent today ?";
 </head>
 <body>
     
-    <div class="container">
-        <div class="row no-gutters">
-            <div class="col-md-4 border-right">
-                    <div class="settings-tray">
-                        
-                            <span style="margin-right:100px">
-                            <img class="profile-image" src="Image/logo.png" alt="Compus">
-                            ASSISTANT
-                            </span>
-                      
-                        
-                        <span class="settings-tray--right " >
-                            <button class="btn disable-btn" onclick="location.reload()"><i  class="material-icons"> cached</i></button>
-                            <button class="btn"  title="Not-Avaliable" id="Not-Avaliable"> <i class="material-icons"> menu</i></button>
-                        </span>
-                    </div>
-                    <div class="Search-box">
-                    </div>
-                    <div  title="Not-Avaliable" id="Not-Avaliable" class="history">
-                        <h5>History</h5>
-                        <!--
-                        <img width='250px'height='250px' src='Image/Soran University Assistant.png' alt='Picture not Found '>
-                        <div class="friend-drawer ">
-                            <img class="profile-image" src="Chat-History-Icon.png" alt="chathistory">
-                            <div class="text">
-                                <h6>Hello</h6>
-                            </div>
-                            <span class="time text-muted small">22:34</span>
-                        </div>
-                    -->
-                    </div>
-                    <hr> 
-                    <div class="setting-fild" >                       
-                       <div   title="Not-Avaliable" id="Not-Avaliable">
-                        <span class="material-icons" >
-                            settings
-                            </span>
-                            <i >Setting</i>
-                        </div>
-                      
-                       <div class="text">
-                            <a href="DeleteHistory.php" onclick="confirmDelete()" >
-                            <span class="material-icons">
-                            delete
-                            </span>
-                            <i>Delete</i>
-                            </a>
-                        </div>
-                        <div onclick="showAboutUs()" class="text">
-                            <span  class="material-icons">
-                                info
-                                </span>
-                                <i>About Us</i>
-                            </div>
-                            
-                            <div  title="Not-Avaliable" id="Not-Avaliable">
-                                <span class="material-icons">
-                                    language
+<div class="container">
+   
+    <div class="settings-tray">
+                                <div class="friend-drawer no-gutters">
+                                    <img class="profile-image" src="Image/logo.png" alt="Compus">
+                                    <div class="text">
+                                        <h6>Student Center Assistant</h6>
+                                    </div>
+                                    <span class="settings-tray--right">
+                                        <button class="btn disable-btn" onclick="location.reload()"><i class="material-icons">cached</i></button>
+                                        <span>
+                                            <?php if (isset($_SESSION['UserID'])): ?>
+                                                <i class="signup-drawer--onhover" onclick="SignOut()"><i class="material-icons">account_circle</i>
+                                                <i>LogOut</i></i>
+                                            <?php else: ?>
+                                                <a class="signup-drawer--onhover" href="Signup.php"><i class="material-icons">account_circle</i>
+                                                <i>SignUp</i></a>
+                                            <?php endif; ?>
+                                        </span>
                                     </span>
-                                    <i>Language</i>
                                 </div>
-                                <div title="Not-Avaliable" id="Not-Avaliable">
-                                    <span class="material-icons">
-                                        settings_brightness
-                                        </span>
-                                        <i>Dark Mode</i>
-                                    </div>
-                                <div class="text">
-                                    <a href="https://www.soran.edu.iq/">
-                                    <span class="material-icons">
-                                    public
-                                        </span>
-                                        <i>  Soran University WebPage </i>
-                                    </a>
-                                   </div>
-                                   <div onclick="feedback()" class="text">
-                                    <span class="material-icons">
-                                        feedback
-                                        </span>
-                                        <i>Feedback</i>
-                                   </div>
-                                   
-                                   <div onclick="Bug_report()" class="text">
-                                    <span class="material-icons">
-                                        bug_report
-                                        </span>
-                                        <i> Report Bug</i>
-                                   </div>
-                                   <div onclick="showSpecialThanks()" class="text">
-                                         <span  class="material-symbols-outlined">
-                                            diversity_4
-                                                </span>
-                                        <i>Special Thanks</i>
-                                       
-                                    </div>
-                                    <div  class="text">
-                                    <?php
-                                  if (isset($_SESSION['UserID'])) {
-                                          echo '<i  onclick="SignOut()"><i  class="material-icons">account_circle</i>
-                                          <i>LogOut</i></i>';
-                                        }else{
-
-                                          echo ' <a href="Signup.php" > <i class="material-icons">account_circle</i>
-                                          <i>SignUp</i></a>';
-                                        }    ?>
-                                    </div>
-                        
-                    </div>
-                      
+                            </div>
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/4 p-6 relative">
+            <div class="Search-box"></div>
+            <div title="Not-Avaliable" id="Not-Avaliable" class="history">
+                <h5>History</h5>
             </div>
-            <div class="col-md-8">
-                    <div class="settings-tray">
-                        <div class="friend-drawer no-gutters ">
-                          
-                                         <img class="profile-image" src="Image/logo.png" alt="Compus">                      
-                                        <div class="text">
-                                       <h6>Student Center Assistant</h6>
-                                   
+            <hr>
+            <div class="setting-fild">
+                <div title="Not-Avaliable" id="Not-Avaliable">
+                    <span class="material-icons">settings</span>
+                    <i>Setting</i>
+                </div>
+                <div class="text">
+                    <a href="DeleteHistory.php" onclick="confirmDelete()">
+                        <span class="material-icons">delete</span>
+                        <i>Delete</i>
+                    </a>
+                </div>
+                <div onclick="showAboutUs()" class="text">
+                    <span class="material-icons">info</span>
+                    <i>About Us</i>
+                </div>
+                <div title="Not-Avaliable" id="Not-Avaliable">
+                    <span class="material-icons">language</span>
+                    <i>Language</i>
+                </div>
+                <div title="Not-Avaliable" id="Not-Avaliable">
+                    <span class="material-icons">settings_brightness</span>
+                    <i>Dark Mode</i>
+                </div>
+                <div class="text">
+                    <a href="https://www.soran.edu.iq/">
+                        <span class="material-icons">public</span>
+                        <i>Soran University WebPage</i>
+                    </a>
+                </div>
+                <div onclick="feedback()" class="text">
+                    <span class="material-icons">feedback</span>
+                    <i>Feedback</i>
+                </div>
+                <div onclick="Bug_report()" class="text">
+                    <span class="material-icons">bug_report</span>
+                    <i>Report Bug</i>
+                </div>
+                <div onclick="showSpecialThanks()" class="text">
+                    <span class="material-symbols-outlined">diversity_4</span>
+                    <i>Special Thanks</i>
+                </div>
+                <div class="text">
+                    <?php if (isset($_SESSION['UserID'])): ?>
+                        <i onclick="SignOut()"><i class="material-icons">account_circle</i>
+                        <i>LogOut</i></i>
+                    <?php else: ?>
+                        <a href="Signup.php">
+                            <i class="material-icons">account_circle</i>
+                            <i>SignUp</i>
+                            
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        <div class="w-full md:w-3/4 p-6 relative">
+            <div id="chat-container" class="chat-container" style="height:75%;overflow-y: scroll; overflow-x: hidden;">
+                <div class="chat-panel">
+                    <?php if(!isset($_SESSION['chat_log'])): ?>
+                        <p class="user-message">
+                            <div class="row no-gutters">
+                                <div class="col-md-6">
+                                    <div class="chat-bubble chat-bubble--left">
+                                        <div><?php echo $rand_msg; ?></div> <!-- Display the randomly selected message -->
+                                    </div>
                                 </div>
-                                <span class="settings-tray--right">
-                                <button class="btn disable-btn" onclick="location.reload()"><i  class="material-icons"> cached</i></button>
-                                 <span  >
-                                <?php
-                               
-                                  if (isset($_SESSION['UserID'])) {
-                                    echo '<i class="signup-drawer--onhover"  onclick="SignOut()"> <i class="material-icons">account_circle</i>
-                                    <i>LogOut</i></i>';
-                                        }else{
-
-                                          echo ' <a class="signup-drawer--onhover"  href="Signup.php"  > <i class="material-icons">account_circle</i>
-                                          <i  >SignUp</i></a>';
-                                        }    
-                             ?>
-                              </span>
-                            </span>
+                            </div>
+                        </p>
+                    <?php endif; ?>
+                    <?php if(isset($_SESSION['chat_log'])): ?>
+                        <?php foreach($_SESSION['chat_log'] as $message): ?>
+                            <?php if($message['sender'] == 'bot'): ?>
+                                <p class="user-message">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-6">
+                                            <div class="chat-bubble chat-bubble--left">
+                                                <?php echo $message['message']; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p>
+                            <?php else: ?>
+                                <p class="bot-message">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-12">
+                                            <span class="time-bubble-Right time text-muted small">22:34</span>
+                                            <div class="chat-bubble chat-bubble-Right offset-md-9 chat-bubble--right">
+                                                <?php echo $message['message']; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <form method="POST" action="Answer.php" autocomplete="off">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="chat-box-tray">
+                            <input class="col-md-11" placeholder="Type something..." list="autocomplete" type="text" id="search" name="user_input">
+                            <datalist class="autocomplete" id="autocomplete">
+                            <datalist id="myDataList">
+                                    <?php foreach($Sotreddata as $key => $value): ?>
+                                        <!-- for each key-value pair in the $Sotreddata array, create an option element with the value attribute set to the key -->
+                                    <option value="<?php echo $key; ?>">
+                                        <?php endforeach; ?>
+                                </datalist>
+                                </datalist>
+                            <button id="send-button" disabled class="send" name="Has-Sumitted" type="submit"><i class="material-icons send-file">send</i></button>
                         </div>
                     </div>
-                    <div id="chat-container" class="chat-container" style="height:75%;overflow-y: scroll; overflow-x: hidden;">
-    <div class="chat-panel">
-    <?php 
-    chatpanel:
-     if(!isset($_SESSION['chat_log'])){ ?>
-        <p class="user-message">
-                        <div class="row no-gutters">
-                            <div class="col-md-6">
-                        
-                                <div class="chat-bubble chat-bubble--left">
-                                <div><?php echo $rand_msg; ?></div> <!-- Display the randomly selected message -->
-         
-                                </div>
-                            </div>
-                        </div>
-                    </p>
-                    <?php }?>
-        <?php  if(isset($_SESSION['chat_log'])): 
-            foreach($_SESSION['chat_log'] as $message):
-                if($message['sender'] == 'bot'): ?>
-                    <p class="user-message">
-                        <div class="row no-gutters">
-                            <div class="col-md-6">
-                              
-                                <div class="chat-bubble chat-bubble--left">
-                                    <?php echo $message['message'] ; ?>
-                                </div>
-                            </div>
-                        </div>
-                    </p>
-                <?php else: ?>
-                    <p class="bot-message">
-                        <div class="row no-gutters">
-                            <div class="col-md-12">
-                                <span class=" time-bubble-Right  time text-muted small">22:34</span>
-                                <div class="chat-bubble chat-bubble-Right offset-md-9 chat-bubble--right">
-                                    <?php echo $message['message']; ?>
-                                </div>
-                            </div>
-                        </div>
-                    </p>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        <?php endif; ?>
+                </div>
+            </form>
+        </div>
+            
     </div>
 </div>
-
-<form method="POST" action="Answer.php" autocomplete="off">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="chat-box-tray">
-                <input class="col-md-11" placeholder="Type something..." list="autocomplete" type="text" id="search" name="user_input">
-                <datalist class="autocomplete" id="autocomplete">
-                   <datalist id="myDataList">
-                        <?php foreach($Sotreddata as $key => $value): ?>
-                            <!-- for each key-value pair in the $Sotreddata array, create an option element with the value attribute set to the key -->
-                         <option value="<?php echo $key; ?>">
-                            <?php endforeach; ?>
-                    </datalist>
-                    </datalist>
-                <button id="send-button" disabled class="send" name="Has-Sumitted" type="submit"><i class="material-icons send-file">send</i></button>
-            </div>
-        </div>
-    </div>
-</form>
-
-
-            </div>
-            
-        </div>
-    </div>
 
 <script>
     function fillForm() {
